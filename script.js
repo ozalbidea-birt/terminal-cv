@@ -1,7 +1,6 @@
 const terminal = document.getElementById("terminal");
 
-let username = "user";
-let hostname = "cv";
+const PROMPT = "root@ozalbidea:/CV#";
 
 let history = [];
 let historyIndex = -1;
@@ -15,8 +14,6 @@ ls skills
 cat experience.txt
 nmap interests
 sudo hire-me
-setuser <nombre>
-sethost <nombre>
 clear
 `,
 
@@ -50,7 +47,7 @@ Experiencia:
 `,
 
     "sudo hire-me": `
-[+] Acceso root concedido
+[+] Privilegios confirmados
 
 🚀 Gracias por revisar mi CV
 📧 Email: tu@email.com
@@ -59,10 +56,6 @@ Experiencia:
 `
 };
 
-function getPrompt() {
-    return `${username}@${hostname}:~$`;
-}
-
 function createInputLine() {
 
     const line = document.createElement("div");
@@ -70,7 +63,7 @@ function createInputLine() {
 
     const prompt = document.createElement("span");
     prompt.classList.add("prompt");
-    prompt.textContent = getPrompt();
+    prompt.textContent = PROMPT;
 
     const input = document.createElement("input");
 
@@ -141,16 +134,7 @@ function executeCommand(command) {
 
     if (command === "clear") {
         terminal.innerHTML = "";
-        return;
-    }
-
-    if (command.startsWith("setuser ")) {
-        username = command.split(" ")[1];
-        return;
-    }
-
-    if (command.startsWith("sethost ")) {
-        hostname = command.split(" ")[1];
+        createInputLine();
         return;
     }
 
@@ -161,5 +145,5 @@ function executeCommand(command) {
     }
 }
 
-/* Primera línea al cargar */
+/* Primera línea */
 createInputLine();
