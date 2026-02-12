@@ -1,7 +1,7 @@
 body {
     background-color: black;
     color: #00ff00;
-    font-family: monospace;
+    font-family: "Fira Code", monospace;
     margin: 0;
     padding: 15px;
 }
@@ -12,25 +12,34 @@ body {
     min-height: 100vh;
 }
 
+/* Línea completa */
 .line {
     display: flex;
-    margin-bottom: 5px;
-    white-space: pre-wrap;
+    align-items: baseline;
 }
 
+/* Prompt */
 .prompt {
     margin-right: 8px;
     white-space: nowrap;
 }
 
+/* Input */
 input {
     background: transparent;
     border: none;
     color: #00ff00;
     outline: none;
-    font-family: monospace;
-    width: 100%;
+    font-family: inherit;
     font-size: 16px;
+    width: 100%;
+}
+
+/* Output estilo terminal real */
+.output {
+    white-space: pre-wrap;
+    font-family: inherit;
+    margin-left: 0;
 }
 
 @media (max-width: 600px) {

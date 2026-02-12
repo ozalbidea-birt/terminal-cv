@@ -128,9 +128,11 @@ function createInputLine() {
 
 function printOutput(text) {
 
-    const div = document.createElement("div");
-    div.textContent = text;
-    terminal.appendChild(div);
+    const pre = document.createElement("pre");
+    pre.classList.add("output");
+    pre.textContent = text;
+
+    terminal.appendChild(pre);
 
     window.scrollTo(0, document.body.scrollHeight);
 }
