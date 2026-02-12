@@ -13,14 +13,13 @@ whoami
 ls skills
 cat experience.txt
 nmap interests
-sudo hire-me
 clear
 `,
 
     whoami: `
-Nombre: Tu Nombre
+Nombre: Oier Zalbidea Uriarte
 Perfil: Técnico en Sistemas / Ciberseguridad
-Ubicación: Madrid
+Ubicación: Bilbao
 `,
 
     "ls skills": `
@@ -44,15 +43,6 @@ Experiencia:
 ✔ Redes
 ✔ Impresión 3D
 ✔ Automatización
-`,
-
-    "sudo hire-me": `
-[+] Privilegios confirmados
-
-🚀 Gracias por revisar mi CV
-📧 Email: tu@email.com
-🔗 LinkedIn: linkedin.com/in/tuusuario
-🐙 GitHub: github.com/tuusuario
 `
 };
 
@@ -86,7 +76,6 @@ function createInputLine() {
             input.disabled = true;
 
             executeCommand(command);
-            createInputLine();
         }
 
         // HISTORIAL ↑
@@ -133,8 +122,13 @@ function printOutput(text) {
 function executeCommand(command) {
 
     if (command === "clear") {
+
+        // 🔥 Limpiar TODO completamente
         terminal.innerHTML = "";
+
+        // 🔥 Crear nueva línea limpia
         createInputLine();
+
         return;
     }
 
@@ -143,6 +137,8 @@ function executeCommand(command) {
     } else {
         printOutput("Comando no encontrado. Usa 'help'");
     }
+
+    createInputLine();
 }
 
 /* Primera línea */
